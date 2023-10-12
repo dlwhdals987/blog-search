@@ -1,0 +1,20 @@
+server.port=8080
+# ===============================
+# = DATA SOURCE
+# ===============================
+#spring.sql.init.platform=postgresql
+#spring.datasource.url=jdbc:postgresql://127.0.0.1:5432/tagroom_app
+#spring.datasource.username=tagroomapi
+#spring.datasource.password=tagroom1@!Local
+#spring.datasource.dbcp2.test-while-idle=true
+#spring.datasource.dbcp2.validation-query=SELECT 1
+#spring.datasource.driver-class-name=org.postgresql.Driver
+# ===============================
+# = JPA
+# ===============================
+#spring.jpa.show-sql=true
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+#spring.jpa.properties.hibernate.format_sql=false
+#spring.jpa.properties.hibernate.default_batch_fetch_size=100
+
