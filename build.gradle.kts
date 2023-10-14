@@ -102,7 +102,10 @@ project(":application") {
 project(":search") {
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter-webflux")
+		implementation("io.github.resilience4j:resilience4j-spring-boot2:2.0.2")
+		implementation("io.github.resilience4j:resilience4j-all:2.0.2")
 		implementation("com.google.code.gson:gson:2.10.1")
+		implementation("org.apache.httpcomponents:httpclient")
 	}
 	tasks.getByName<Jar>("jar") { enabled = true }
 	tasks.getByName<BootJar>("bootJar") { enabled = false }

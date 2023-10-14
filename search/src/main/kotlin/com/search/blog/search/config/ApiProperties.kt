@@ -5,8 +5,8 @@ import org.springframework.boot.context.properties.ConstructorBinding
 
 
 @ConstructorBinding
-@ConfigurationProperties(prefix = "blog.search")
+@ConfigurationProperties("blog.search")
 data class ApiProperties(val kakao: Kakao, val naver: Naver) {
-    data class Kakao(val apiUri: String, val apiKey: String)
-    data class Naver(val apiUri: String, val clientId: String, val clientSecret: String)
+    data class Kakao(val apiUrl: String, val apiKey: String)
+    data class Naver(val apiUrl: String, val clientId: String, val clientSecret: String)
 }
