@@ -1,7 +1,6 @@
 package com.search.blog.popular.entity
 
 import com.search.blog.popular.utils.BaseEntity
-import org.hibernate.annotations.ColumnDefault
 import javax.persistence.*
 
 @Entity
