@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "com.search"
-version = "0.0.1-SNAPSHOT"
+version = "1.0.0-SNAPSHOT"
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
@@ -105,7 +105,6 @@ project(":search") {
 		implementation("org.springframework.boot:spring-boot-starter-webflux")
 		implementation("io.github.resilience4j:resilience4j-spring-boot2:2.0.2")
 		implementation("io.github.resilience4j:resilience4j-all:2.0.2")
-		implementation("com.google.code.gson:gson:2.10.1")
 		implementation("org.apache.httpcomponents:httpclient")
 	}
 	tasks.getByName<Jar>("jar") { enabled = true }
