@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
 @Configuration
 @EnableJpaAuditing
-@EnableJpaRepositories(basePackages = ["com.github.minsoozz.search.persistence.repository"])
+@EnableJpaRepositories(basePackages = ["com.search.blog"])
 class JpaConfiguration
