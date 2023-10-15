@@ -92,6 +92,7 @@ subprojects {
 project(":application") {
 	dependencies {
 		api(project(":search"))
+		api(project(":popular-searches"))
 	}
 	tasks.getByName<BootJar>("bootJar") {
 		enabled = true
@@ -106,6 +107,13 @@ project(":search") {
 		implementation("io.github.resilience4j:resilience4j-all:2.0.2")
 		implementation("com.google.code.gson:gson:2.10.1")
 		implementation("org.apache.httpcomponents:httpclient")
+	}
+	tasks.getByName<Jar>("jar") { enabled = true }
+	tasks.getByName<BootJar>("bootJar") { enabled = false }
+}
+
+project(":popular-searches") {
+	dependencies {
 	}
 	tasks.getByName<Jar>("jar") { enabled = true }
 	tasks.getByName<BootJar>("bootJar") { enabled = false }

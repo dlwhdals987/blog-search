@@ -5,21 +5,56 @@ spring:
 # ===============================
 # = DATA SOURCE
 # ===============================
-#spring.sql.init.platform=postgresql
-#spring.datasource.url=jdbc:postgresql://127.0.0.1:5432/tagroom_app
-#spring.datasource.username=tagroomapi
-#spring.datasource.password=tagroom1@!Local
-#spring.datasource.dbcp2.test-while-idle=true
-#spring.datasource.dbcp2.validation-query=SELECT 1
-#spring.datasource.driver-class-name=org.postgresql.Driver
+  sql:
+    init:
+      platform: h2
+  datasource:
+    url: jdbc:h2:tcp://localhost/./blog
+    username: blog
+    password: blog1!
+    driver-class-name: org.h2.Driver
+    dbcp2:
+      test-while-idle: true
 # ===============================
 # = JPA
 # ===============================
-#spring.jpa.show-sql=true
-#spring.jpa.hibernate.ddl-auto=update
-#spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
-#spring.jpa.properties.hibernate.format_sql=false
-#spring.jpa.properties.hibernate.default_batch_fetch_size=100
+  jpa:
+    open-in-view: false
+    database: h2
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+# ===============================
+# = CIRCUITBREAKER
+# ===============================
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+    instances:
+      caller:
+        baseConfig: default
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+  health:
+    circuitbreakers:
+      enabled: true
+# ===============================
+# = API_KEY
+# ===============================
 blog:
   search:
     kakao:
@@ -30,3 +65,6 @@ blog:
       apiUrl: https://openapi.naver.com/v1/search/blog.json
       clientId: xrJxqsiiBIQINqholf6i
       clientSecret: zGx8yPqgPv
+
+logging.level:
+  org.hibernate.SQL: debug
